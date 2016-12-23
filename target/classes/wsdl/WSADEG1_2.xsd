@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--File Interfaces/ISPTypes.xsd, application WSADEG1_ADEG0_CS_WSADEG1, static library WSADEG1_ADEG0_MM_WSADEG1-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:intns="http://intesasanpaolo.it/" targetNamespace="http://intesasanpaolo.it/">
+	<xsd:simpleType name="ParamList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CodABI" />
+			<xsd:enumeration value="CodUnitaOperativa" />
+			<xsd:enumeration value="DataContabile" />
+			<xsd:enumeration value="FlagPaperless" />
+			<xsd:enumeration value="CodOperativita" />
+			<xsd:enumeration value="CodTerminaleCics" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

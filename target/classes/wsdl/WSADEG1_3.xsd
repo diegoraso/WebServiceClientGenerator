@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--File Interfaces/NBP_ErrorInfo.xsd, application WSADEG1_ADEG0_CS_WSADEG1, static library WSADEG1_ADEG0_MM_WSADEG1-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.intesasanpaolo.com/" targetNamespace="http://ws.intesasanpaolo.com/">
+	<xsd:element name="NBP_ErrorInfo" type="tns:NBP_ErrorInfoType" />
+	<xsd:complexType name="NBP_ErrorInfoType">
+		<xsd:all>
+			<xsd:element name="ErrCode" type="tns:codeEnum" />
+			<xsd:element name="ErrSubcode" type="tns:subcodeEnum" />
+			<xsd:element name="ErrReason" type="xsd:string" />
+			<xsd:element name="ID" type="xsd:string" />
+			<xsd:element name="Message" type="xsd:string" />
+			<xsd:element name="ErrSource" type="xsd:string" />
+			<xsd:element name="AdditionalInfo" type="xsd:string" />
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:simpleType name="codeEnum">
+		<xsd:restriction base="xsd:QName">
+			<xsd:enumeration value="tns:Receiver" />
+			<xsd:enumeration value="tns:Sender" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="subcodeEnum">
+		<xsd:restriction base="xsd:QName">
+			<xsd:enumeration value="tns:InvalidRequest" />
+			<xsd:enumeration value="tns:Timeout" />
+			<xsd:enumeration value="tns:SystemError" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
