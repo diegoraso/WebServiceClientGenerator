@@ -1,17 +1,12 @@
 package com.capgemini.main;
 
-import java.io.File;
-import java.net.URL;
-
-import javax.xml.namespace.QName;
-
 public class Main  {
 
 
 	public static void main(String[] args) throws Exception {
-		File f= new File("src/main/resources/wsdl/BLZService.wsdl");
-		URL url = new URL(f.toURI().toString());
-		QName serviceQname =  new QName("http://www.webserviceX.NET", "GlobalWeather");
+//		File f= new File("src/main/resources/wsdl/BLZService.wsdl");
+//		URL url = new URL(f.toURI().toString());
+//		QName serviceQname =  new QName("http://www.webserviceX.NET", "GlobalWeather");
 //		BLZService b = new BLZService();
 //		BLZServicePortType port = b.getBLZServiceSOAP11PortHttp();
 //	
