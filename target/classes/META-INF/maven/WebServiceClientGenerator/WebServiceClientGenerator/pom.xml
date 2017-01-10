@@ -70,14 +70,17 @@
 				<artifactId>jaxws-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<!-- <packageName>com.capgemini.adegParalleloService.client</packageName> -->
+					<packageName>com.capgemini.webservice.client</packageName>
 					<keep>true</keep>
 					<sourceDestDir>${basedir}/target/generated/src/main/java</sourceDestDir>
 					<wsdlFiles>
 						<wsdlFile>${basedir}/src/main/resources/wsdl/WSADEG1.wsdl</wsdlFile>
+						<wsdlFile>${basedir}/src/main/resources/wsdl/globalweather.wsdl</wsdlFile>
 					</wsdlFiles>
-					<!-- <wsdlUrls> <wsdlUrl> http://www.webservicex.net/globalweather.asmx?WSDL 
-						</wsdlUrl> </wsdlUrls> -->
+					<!-- <wsdlUrls>
+						<wsdlUrl> http://www.webservicex.net/globalweather.asmx?WSDL
+						</wsdlUrl>
+					</wsdlUrls> -->
 				</configuration>
 				<executions>
 					<execution>
