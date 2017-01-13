@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--File Interfaces/ISPWebservicesHeader.xsd, application WSADEG2_ADEG0_CS_WSADEG2, static library WSADEG2_ADEG0_MM_WSADEG2--><xsd:schema targetNamespace="http://intesasanpaolo.it/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:intns="http://intesasanpaolo.it/">
+  <xsd:include schemaLocation="WSADEG2_1.xsd"/>
+  <xsd:element ibmSchExtn:docRoot="true" name="ISPWebservicesHeader" type="intns:ISPWebservicesHeaderType"/>
+  <xsd:complexType name="ISPWebservicesHeaderType">
+    <xsd:all>
+      <xsd:element name="RequestInfo">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="TransactionId" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="Timestamp" type="xsd:long"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="ServiceID" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="ServiceVersion" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="Language" type="xsd:string"/>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OperatorInfo">
+        <xsd:complexType>
+          <xsd:attribute name="UserID" type="xsd:string" use="required"/>
+          <xsd:attribute name="IsVirtualUser" type="xsd:boolean" use="required"/>
+          <xsd:attribute name="NotISPUserID" type="xsd:string"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CompanyInfo">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="ISPCallerCompanyIDCode" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="NotISPCompanyIDCode" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="ISPBranchCode" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="ISPServiceCompanyIDCode" type="xsd:string"/>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BusinessInfo">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="CustomerID" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="BusinessProcessName" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="BusinessProcessID" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="BusinessOperation" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="BusinessFileID" type="xsd:string"/>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TechnicalInfo">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="ChannelIDCode" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="ApplicationID" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="CallerServerName">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:pattern value="[a-zA-Z0-9.]{4,255}"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" name="CallerProgramName" type="xsd:string"/>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AdditionalBusinessInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="1" name="Param">
+              <xsd:complexType>
+                <xsd:attribute name="Name" type="intns:ParamList" use="required"/>
+                <xsd:attribute name="Value" type="xsd:string" use="required"/>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:all>
+  </xsd:complexType>
+</xsd:schema>

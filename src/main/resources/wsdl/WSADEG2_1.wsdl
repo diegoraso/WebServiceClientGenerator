@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--File Interfaces/ADEG0_WSADEG2.wsdl, application WSADEG2_ADEG0_CS_WSADEG2, static library WSADEG2_ADEG0_MM_WSADEG2--><wsdl:definitions name="WSADEG2" targetNamespace="http://www.accenture.com/ADEG0/WSADEG2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:intns="http://intesasanpaolo.it/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.accenture.com/ADEG0/WSADEG2/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://ws.intesasanpaolo.com/" xmlns:xsd2="http://www.accenture.com/ADEG0/WSADEG2/">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="Interfaces/ADEG0_WSADEG2_InlineSchema.xsd"/>
+        <binding hasEncoding="false" imported="true" name="WSADEG2SOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.accenture.com/ADEG0/WSADEG2/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+      <xsd:import namespace="http://intesasanpaolo.it/" schemaLocation="WSADEG2.xsd"/>
+      <xsd:include schemaLocation="WSADEG2_1_2.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.accenture.com/ADEG0/WSADEG2/" schemaLocation="WSADEG2_1_2.xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.accenture.com/ADEG0/WSADEG2/"/>
+  </wsdl:types>
+  <wsdl:message name="WSADEG2Request">
+    <wsdl:part element="intns:ISPWebservicesHeader" name="header"/>
+    <wsdl:part element="tns:WSADEG2Request" name="parameter"/>
+  </wsdl:message>
+  <wsdl:message name="WSADEG2Response">
+    <wsdl:part element="tns:WSADEG2Response" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="WSADEG2Fault">
+    <wsdl:part element="tns:Fault" name="error"/>
+  </wsdl:message>
+  <wsdl:portType name="WSADEG2">
+    <wsdl:operation name="WSADEG2">
+      <wsdl:input message="tns:WSADEG2Request"/>
+      <wsdl:output message="tns:WSADEG2Response"/>
+      <wsdl:fault message="tns:WSADEG2Fault" name="fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSADEG2SOAP" type="tns:WSADEG2">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="WSADEG2">
+      <soap:operation soapAction="http://www.accenture.com/ADEG0/WSADEG2/"/>
+      <wsdl:input>
+        <soap:body parts="parameter" use="literal"/>
+        <soap:header message="tns:WSADEG2Request" part="header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSADEG2">
+    <wsdl:port binding="tns:WSADEG2SOAP" name="WSADEG2SOAP">
+      <soap:address location="http://sklclt0295.sede.corp.sanpaoloimi.com:19017/ADEG0/WSADEG2"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

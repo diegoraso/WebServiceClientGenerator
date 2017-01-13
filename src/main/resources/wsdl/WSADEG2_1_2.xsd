@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--File Interfaces/ADEG0_WSADEG2_InlineSchema.xsd, application WSADEG2_ADEG0_CS_WSADEG2, static library WSADEG2_ADEG0_MM_WSADEG2--><xsd:schema targetNamespace="http://www.accenture.com/ADEG0/WSADEG2/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:intns="http://intesasanpaolo.it/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.accenture.com/ADEG0/WSADEG2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd1="http://ws.intesasanpaolo.com/">
+  <xsd:import namespace="http://ws.intesasanpaolo.com/" schemaLocation="WSADEG2_1_2_3.xsd"/>
+  <xsd:element ibmSchExtn:docRoot="true" name="WSADEG2Response" type="tns:WSADEG2ResponseType"/>
+  <xsd:element ibmSchExtn:docRoot="true" name="WSADEG2Request" type="tns:WSADEG2RequestType"/>
+  <xsd:element ibmSchExtn:docRoot="true" name="Fault" type="xsd1:NBP_ErrorInfoType"/>
+  <xsd:complexType name="HEAD-INFO-TYPE">
+    <xsd:sequence>
+      <xsd:element name="idChiamata" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="codiceWebService" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WSADEG2ResponseType">
+    <xsd:sequence>
+      <xsd:element name="ESITO_ADEGUATEZZA" type="xsd:string"/>
+      <xsd:element name="RC_ESITO" type="xsd:integer"/>
+      <xsd:element name="MSG_ADEGUATEZZA" type="xsd:string"/>
+      <xsd:element name="LIV_SEGNALAZIONE" type="xsd:string"/>
+      <xsd:element name="FLG_ADEGUATO" type="xsd:boolean"/>
+      <xsd:element name="NUM_PROPOSTA" type="xsd:string"/>
+      <xsd:element name="TXT_SGN" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WSADEG2RequestType">
+    <xsd:sequence>
+      <xsd:element name="HEAD-INFO" type="tns:HEAD-INFO-TYPE"/>
+      <xsd:element minOccurs="0" name="ISTITUTO" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="MATRICOLA" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="CF" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="NSG" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="MANDATO" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AZIONE" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="COD_STRUMENTO" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="COD_TIPOSTRUMENTO" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="COD_STRUMENTO_CARICO" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="COD_TIPOSTRUMENTO_CARICO" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="COD_SEGNO" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="IMP_CTV" type="xsd:double"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="COD_DA" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="CF_ORDINANTE" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="CF_SOTTOSCRITTORE" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="QUANTITA" type="xsd:double"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="NSG_ORDINANTE" type="xsd:double"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="LISTA_GP" type="tns:StrumentiComplessi"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="LISTA_POLIZZE" type="tns:StrumentiComplessi"/>
+      <xsd:element minOccurs="0" name="COD_CLIENTE" type="xsd:integer"/>
+      <xsd:element minOccurs="0" name="COD_STRUMENTOINF" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="CANALEREAD" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="FILIALEREAD" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="OWNERREAD" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SAUP" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TRACID" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="StrumentiComplessi">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="codStrumento" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="controvalore" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="istituto" nillable="true" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="listaLinee" nillable="true" type="tns:StrumentiLinea"/>
+      <xsd:element minOccurs="0" name="nsgOrdinanteOpe" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="segnoOperazione" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="StrumentiLinea">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="codAbiLinea" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="codLinea" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="codTipoLinea" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="importo" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="segnoCTV" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,4 +1,4 @@
-package com.capgemini.soap.handler;
+package com.capgemini.ws.soap.handler;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -15,11 +15,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-
-public class MyServiceLogHandler implements SOAPHandler<SOAPMessageContext> {
+/**
+ * 
+ * @author diraso
+ *
+ */
+public class WebServiceLogHandler implements SOAPHandler<SOAPMessageContext> {
 
 	// Logger	
-	private static final Logger log = LoggerFactory.getLogger(MyServiceLogHandler.class);
+	private static final Logger log = LoggerFactory.getLogger(WebServiceLogHandler.class);
+	
+	
 	@Override
 	public boolean handleMessage(SOAPMessageContext context) {
 		logMessage(context);
