@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS 
+	RI 2.2.10-b140319.1121 svn-revision#7b34660d6bc70e587e8ec81a17e4d76af68816a6. -->
+<xsd:schema xmlns:ns0="http://bean.acn.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://bean.acn.com/">
+	<xsd:complexType name="businessInfo">
+		<xsd:sequence>
+			<xsd:element name="businessFileID" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="businessOperation" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="businessProcessID" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="businessProcessName" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="customerID" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="elaboraMovimento">
+		<xsd:sequence>
+			<xsd:element name="params" type="ns0:adeg3Parameters"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="atomicServiceBaseParameters">
+		<xsd:sequence>
+			<xsd:element name="caller" type="xsd:string" minOccurs="0" />
+			<xsd:element name="serviceUser" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="adeg3Result">
+		<xsd:sequence>
+			<xsd:element name="retCode" type="xsd:string" minOccurs="0" />
+			<xsd:element name="retResonCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="retResonDesc" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="elaboraMovimentoResponse">
+		<xsd:sequence>
+			<xsd:element name="result" type="ns0:adeg3Result"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="technicalInfo">
+		<xsd:sequence>
+			<xsd:element name="applicationID" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="callerProgramName" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="callerServerName" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="channelIDCode" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="atomicServiceHeader">
+		<xsd:sequence>
+			<xsd:element name="additionalBusinessInfo" type="ns0:additionalBusinessInfo"
+				minOccurs="0" />
+			<xsd:element name="businessInfo" type="ns0:businessInfo"
+				minOccurs="0" />
+			<xsd:element name="companyInfo" type="ns0:companyInfo"
+				minOccurs="0" />
+			<xsd:element name="operatorInfo" type="ns0:operatorInfo"
+				minOccurs="0" />
+			<xsd:element name="requestInfo" type="ns0:requestInfo"
+				minOccurs="0" />
+			<xsd:element name="technicalInfo" type="ns0:technicalInfo"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="adeg3Parameters">
+		<xsd:complexContent>
+			<xsd:extension base="ns0:atomicServiceBaseParameters">
+				<xsd:sequence>
+					<xsd:element name="callProc" type="ns0:callProc"
+						minOccurs="0" />
+					<xsd:element name="canale" type="ns0:canale" minOccurs="0" />
+					<xsd:element name="cist" type="xsd:string" minOccurs="0" />
+					<xsd:element name="filleInp" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="frequenza" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="gestione_parallelo" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="numOpe" type="xsd:int" />
+					<xsd:element name="tabOpe" type="ns0:tabOpe" minOccurs="0"
+						maxOccurs="unbounded" nillable="true" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="chiaveOper">
+		<xsd:sequence>
+			<xsd:element name="nRegAnn" type="xsd:long" />
+			<xsd:element name="nRegNum" type="xsd:long" />
+			<xsd:element name="nRegSnr" type="xsd:long" />
+			<xsd:element name="nRegTer" type="xsd:string" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="faultBean">
+		<xsd:sequence>
+			<xsd:element name="codice" type="xsd:string" minOccurs="0" />
+			<xsd:element name="descrizione" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="tabOpe">
+		<xsd:sequence>
+			<xsd:element name="cTipStrum" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="chiaveOper" type="ns0:chiaveOper"
+				minOccurs="0" />
+			<xsd:element name="codMandato" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="codNsg" type="xsd:string" minOccurs="0" />
+			<xsd:element name="codRapp" type="xsd:string" minOccurs="0" />
+			<xsd:element name="codStrum" type="xsd:string" minOccurs="0" />
+			<xsd:element name="ctv" type="xsd:decimal" minOccurs="0" />
+			<xsd:element name="dataMovimento" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="dvs" type="xsd:string" minOccurs="0" />
+			<xsd:element name="operazione" type="ns0:operazione"
+				minOccurs="0" />
+			<xsd:element name="segno" type="ns0:segno" minOccurs="0" />
+			<xsd:element name="svecchia" type="xsd:boolean" />
+			<xsd:element name="timeStamp" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="tipoMovimento" type="ns0:tipoMovimento"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestInfo">
+		<xsd:sequence>
+			<xsd:element name="language" type="xsd:string" minOccurs="0" />
+			<xsd:element name="serviceID" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="serviceVersion" type="xsd:int" />
+			<xsd:element name="timestamp" type="xsd:dateTime"
+				minOccurs="0" />
+			<xsd:element name="transactionId" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="additionalBusinessInfo">
+		<xsd:sequence>
+			<xsd:element name="codABI" type="xsd:string" minOccurs="0" />
+			<xsd:element name="codOperatività" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="codTerminaleCics" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="codUnitaOperativa" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="dataContabile" type="xsd:dateTime"
+				minOccurs="0" />
+			<xsd:element name="flagPaperless" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="companyInfo">
+		<xsd:sequence>
+			<xsd:element name="ISPBranchCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="ISPCallerCompanyIDCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="ISPServiceCompanyIDCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="notISPCompanyIDCode" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="operatorInfo">
+		<xsd:sequence>
+			<xsd:element name="ISVirtualUser" type="xsd:boolean" />
+			<xsd:element name="notISPUserID" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="userID" type="xsd:string" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="elaboraMovimento" type="ns0:elaboraMovimento" />
+	<xsd:element name="elaboraMovimentoResponse" type="ns0:elaboraMovimentoResponse" />
+	<xsd:element name="AtomicServiceError" type="ns0:faultBean"
+		nillable="true" />
+	<xsd:element name="header" type="ns0:atomicServiceHeader"
+		nillable="true" />
+	<xsd:simpleType name="segno">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="C" />
+			<xsd:enumeration value="V" />
+			<xsd:enumeration value="P" />
+			<xsd:enumeration value="W" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tipoMovimento">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BLANK" />
+			<xsd:enumeration value="SO" />
+			<xsd:enumeration value="SH" />
+			<xsd:enumeration value="RI" />
+			<xsd:enumeration value="SW" />
+			<xsd:enumeration value="SA" />
+			<xsd:enumeration value="PD" />
+			<xsd:enumeration value="LI" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="canale">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BLANK" />
+			<xsd:enumeration value="F" />
+			<xsd:enumeration value="D" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="operazione">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BLANK" />
+			<xsd:enumeration value="I" />
+			<xsd:enumeration value="U" />
+			<xsd:enumeration value="D" />
+			<xsd:enumeration value="T" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="callProc">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BLANK" />
+			<xsd:enumeration value="AF" />
+			<xsd:enumeration value="POL" />
+			<xsd:enumeration value="GPM" />
+			<xsd:enumeration value="GPF" />
+			<xsd:enumeration value="QV" />
+			<xsd:enumeration value="AFP" />
+			<xsd:enumeration value="POI" />
+			<xsd:enumeration value="POU" />
+			<xsd:enumeration value="OFF" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
