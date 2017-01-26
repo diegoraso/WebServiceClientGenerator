@@ -19,7 +19,7 @@ import com.capgemini.ws.soap.log.SoapRequestResponseLogger;
 
 public class SoapWSInitializer {
 	/*
-	 * Singleton Pattern 
+	 * Singleton Pattern
 	 */
 	private static SoapWSInitializer instance;
 
@@ -232,7 +232,7 @@ public class SoapWSInitializer {
 
 			SoapRequestResponseLogger ws = SoapRequestResponseLogger.getInstance();
 
-			ws.enableAutomaticWSLog();
+			ws.setUpWebServiceLog(port);
 
 			o = invokeMethod(methodName, port, objects);
 
@@ -334,7 +334,7 @@ public class SoapWSInitializer {
 
 		for (Method method : allMethods) {
 			if (method.isAnnotationPresent(a)) {
-				int parameterCount = method.getParameterCount();
+				int parameterCount = method.getParameterTypes().length;
 				if (parametrized && parameterCount > 0 || !parametrized && parameterCount == 0) {
 					methods.add(method);
 				}

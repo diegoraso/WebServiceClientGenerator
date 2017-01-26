@@ -1,11 +1,15 @@
 package com.capgemini.main;
 
-import javax.xml.ws.WebServiceFeature;
+import java.util.Map;
+
+import javax.xml.ws.BindingProvider;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.capgemini.webservice.client.GlobalWeather;
+import com.capgemini.webservice.client.GlobalWeatherSoap;
+import com.capgemini.ws.soap.handler.WebServiceLogHandler;
 import com.capgemini.ws.soap.init.SoapWSInitializer;
 
 public class Main {
@@ -17,7 +21,12 @@ public class Main {
 		System.setProperty("http.proxyHost", "10.68.64.37");
 		System.setProperty("http.proxyPort", "8081");
 
-		Object response = SoapWSInitializer.callWebServiceMethodWithSystemLogging(GlobalWeather.class, "getWeather","","");
+		WebServiceLogHandler wsl = new WebServiceLogHandler();
+		GlobalWeather g = new GlobalWeather();
+		
+		 GlobalWeatherSoap port = g.getGlobalWeatherSoap();
+		Map<String, Object> responseContext = ((BindingProvider)port).getResponseContext();
+		Object response = SoapWSInitializer.callWebServiceMethodWithCustomLogging(GlobalWeather.class, "getWeather","","");
 		SoapWSInitializer.getWebServiceMethod(GlobalWeather.class, "getGlobalWeatherSoap");
 		log.debug("Respose {}",response);
 
